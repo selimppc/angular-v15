@@ -9,6 +9,11 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CheckboxComponent } from './ui/checkbox/checkbox.component'; 
 import { MaterialModules } from '../material.module';
+import { GithubUsersComponent } from './github-users/github-users.component';
+
+import {HttpClientModule} from '@angular/common/http'; // importing the http module
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -17,12 +22,15 @@ import { MaterialModules } from '../material.module';
     ContactComponent,
     HomeComponent,
     CheckboxComponent,
+    GithubUsersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModules
+    FormsModule,
+    MaterialModules,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,5 @@
+import { TokenInterceptor } from './service/auth/TokenInterceptor';
+import { AuthGuard } from './service/auth/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,10 +13,16 @@ import { CheckboxComponent } from './ui/checkbox/checkbox.component';
 import { MaterialModules } from '../material.module';
 import { GithubUsersComponent } from './github-users/github-users.component';
 
-import {HttpClientModule} from '@angular/common/http'; // importing the http module
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'; // importing the http module
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from './uitools/button/button.component';
-
+import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { TableComponent } from './molecules/table/table.component';
+import { ListComponent } from './list/list.component';
+import { CookieService } from 'ngx-cookie-service';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +33,12 @@ import { ButtonComponent } from './uitools/button/button.component';
     CheckboxComponent,
     GithubUsersComponent,
     ButtonComponent,
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent,
+    TableComponent,
+    ListComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +48,11 @@ import { ButtonComponent } from './uitools/button/button.component';
     MaterialModules,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    CookieService,
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

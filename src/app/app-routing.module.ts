@@ -1,3 +1,7 @@
+import { AuthGuard } from './service/auth/auth-guard.service';
+import { UsersComponent } from './users/users.component';
+import { ListComponent } from './list/list.component';
+import { LoginComponent } from './login/login.component';
 import { GithubUsersComponent } from './github-users/github-users.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './static/contact/contact.component';
@@ -13,9 +17,16 @@ const routes: Routes = [
   { path:"home", component: HomeComponent },
   
   { path:"github-users", component: GithubUsersComponent },
+  
+  
+  { path:"login", component: LoginComponent },
+  { path:"list", component: ListComponent },
+  {
+    path: 'users', component: UsersComponent, canActivate:[AuthGuard],
+  },
 
 
-  { path:"", component: HomeComponent },
+  { path:"", component: HomeComponent, pathMatch:"full" },
   // last element
   { path:"**", component: HomeComponent }
 ];

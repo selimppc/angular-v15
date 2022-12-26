@@ -1,4 +1,4 @@
-import { GithubUser, GithubUserService } from './../service/github-user.service';
+import { GithubUser, GithubUserService } from './../service/github/github-user.service';
 import { Component, OnInit } from '@angular/core';
 
 

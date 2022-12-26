@@ -12,7 +12,7 @@ const routes: Routes = [
   { path:"contact", component: ContactComponent },
   { path:"home", component: HomeComponent },
   
-  { path:"gusers", component: GithubUsersComponent },
+  { path:"github-users", component: GithubUsersComponent },
 
 
   { path:"", component: HomeComponent },

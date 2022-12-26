@@ -13,6 +13,7 @@ import { GithubUsersComponent } from './github-users/github-users.component';
 
 import {HttpClientModule} from '@angular/common/http'; // importing the http module
 import { FormsModule } from '@angular/forms';
+import { ButtonComponent } from './uitools/button/button.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     CheckboxComponent,
     GithubUsersComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

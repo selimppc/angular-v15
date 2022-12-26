@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    return !!this.getJwtToken();
+    return this.getJwtToken();
   }
 
 

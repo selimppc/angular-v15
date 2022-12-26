@@ -1,6 +1,6 @@
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -12,21 +12,28 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(
     request: HttpRequest<any>, next: HttpHandler
-    ): Observable<HttpEvent<any>> 
+    ): Observable<HttpEvent<Object>> 
   {
 
-    if (this.authService.getJwtToken()) {
-      request = this.addToken(request, this.authService.getJwtToken());
+    const token = this.authService.getJwtToken();
+    if (token != null) {
+      request = this.addToken(request, token);
     }
 
     return next.handle(request).pipe(
       catchError(error => {
+        if (error instanceof HttpErrorResponse && error.status === 401) {
+          // do something for handling 401 like refresh token
+          // or
+          // redirect user to the logout page
+        }
         return throwError(() => error);
       })
     );
+
   }
 
-  private addToken(request: HttpRequest<any>, token: string | null) {
+  private addToken(request: HttpRequest<any>, token: string) {
     return request.clone({
       setHeaders: {
         'Authorization': `Bearer ${token}`

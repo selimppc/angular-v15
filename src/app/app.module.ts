@@ -1,3 +1,4 @@
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { TokenInterceptor } from './service/auth/TokenInterceptor';
 import { AuthGuard } from './service/auth/auth-guard.service';
 import { NgModule } from '@angular/core';
@@ -57,6 +58,7 @@ import { LoginSignupMenuComponent } from './layout/login-signup-menu/login-signu
     CookieService,
     AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ],
   bootstrap: [AppComponent]
 })

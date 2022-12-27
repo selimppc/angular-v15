@@ -14,7 +14,7 @@ import { MaterialModules } from '../material.module';
 import { GithubUsersComponent } from './github-users/github-users.component';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'; // importing the http module
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './uitools/button/button.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -23,6 +23,8 @@ import { TableComponent } from './molecules/table/table.component';
 import { ListComponent } from './list/list.component';
 import { CookieService } from 'ngx-cookie-service';
 import { UsersComponent } from './users/users.component';
+import { MainMenuComponent } from './layout/main-menu/main-menu.component';
+import { LoginSignupMenuComponent } from './layout/login-signup-menu/login-signup-menu.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +41,15 @@ import { UsersComponent } from './users/users.component';
     TableComponent,
     ListComponent,
     UsersComponent,
+    MainMenuComponent,
+    LoginSignupMenuComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModules,
     HttpClientModule,
   ],

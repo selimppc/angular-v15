@@ -41,10 +41,25 @@
           </mat-form-field>
         </div>
 
-        <div class="btn-container">
+        <!-- <div class="btn-container">
           <div class="error">{{ errorMsg }}</div>
           <button class="btn btn-dark" (click)="login()">Login</button>
-        </div>
+        </div> -->
+
+        <!-- Button -->
+        <app-button
+          [label]="buttonLabel"
+          [color]="buttonColor" 
+          [type]="buttonType"
+        ></app-button>
+
+        &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  
+
+        <app-button
+          [label]="clearButtonLabel"
+          [color]="clearButtonColor" 
+          [type]="clearButtonType"
+        ></app-button>
 
       </form>
       

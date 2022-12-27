@@ -24,6 +24,13 @@ export class LoginComponent implements OnInit {
   username = "";
   password = "";
   errorMsg = "";
+  buttonLabel: string = "Allow me to Login";
+  buttonColor: string = "primary";
+  buttonType: string = "submit";
+
+  clearButtonLabel: string = "Clear";
+  clearButtonColor: string = "accent";
+  clearButtonType: string = "accent";
 
   loginForm = new FormGroup(
     {
@@ -40,7 +47,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    //this.buttonColor = "primary";
+    //this.buttonLabel = "Login";
+    //throw new Error('Method not implemented.');
   }
 
   login() {

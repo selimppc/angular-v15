@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export interface GithubUser {
-  avatar_url: string,
-  login: string,
-  node_id: string,
-  site_admin: boolean,
-  type: string
-  }
+    avatar_url: string,
+    login: string,
+    node_id: string,
+    site_admin: boolean,
+    type: string
+}
 
 
 @Injectable({

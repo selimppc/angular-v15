@@ -21,6 +21,7 @@ export class GithubUsersComponent implements OnInit{
     this.githubUserService
       .getGithubUsers()
       .subscribe(data => {
+        console.log('data', data);
         this.gUsers = data;
       });
   }

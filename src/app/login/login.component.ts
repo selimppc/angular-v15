@@ -28,14 +28,15 @@ export class LoginComponent implements OnInit {
   buttonColor: string = "primary";
   buttonType: string = "submit";
 
-  clearButtonLabel: string = "Clear";
-  clearButtonColor: string = "accent";
-  clearButtonType: string = "accent";
+  clearButtonLabel: string = "Reset";
+  clearButtonColor: string = "";
+  clearButtonType: string = "reset";
+
 
   loginForm = new FormGroup(
     {
-      "username": new FormControl('', Validators.required),
-      "password": new FormControl('', Validators.required),
+      "username": new FormControl('', [Validators.required, Validators.minLength(5)]),
+      "password": new FormControl('', [Validators.required, Validators.minLength(6)]),
     }
   );
   matcher = new LoginErrorStateMatcher();
@@ -50,6 +51,12 @@ export class LoginComponent implements OnInit {
     //this.buttonColor = "primary";
     //this.buttonLabel = "Login";
     //throw new Error('Method not implemented.');
+  }
+
+
+  onSubmit(){
+    console.log(this.loginForm.get('username')?.errors);
+
   }
 
   login() {

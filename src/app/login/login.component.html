@@ -4,7 +4,7 @@
 
     <div class="login-form">
 
-      <form class="example-form" [formGroup]="loginForm">
+      <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
         <div class="form-group">
           <mat-form-field class="example-full-width">
@@ -18,8 +18,12 @@
               placeholder="Ex. something secure"
             />
             <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-            <mat-error *ngIf="loginForm.hasError('username')">
+            <mat-error *ngIf="loginForm.get('username')?.touched && this.loginForm.get('username')?.errors?.['required']">
               Username is <strong>required</strong>
+            </mat-error>
+
+            <mat-error *ngIf="loginForm.get('username')?.touched && this.loginForm.get('username')?.errors?.['minlength']">
+              Character must be minimum <strong>5</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -35,8 +39,12 @@
               placeholder="Ex. something secure"
             />
             <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-            <mat-error *ngIf="loginForm.hasError('username')">
+            <mat-error *ngIf="loginForm.get('password')?.touched && this.loginForm.get('password')?.errors?.['required']">
               Password is <strong>required</strong>
+            </mat-error>
+
+            <mat-error *ngIf="loginForm.get('password')?.touched && this.loginForm.get('password')?.errors?.['minlength']">
+              Character must be minimum <strong>6</strong>
             </mat-error>
           </mat-form-field>
         </div>

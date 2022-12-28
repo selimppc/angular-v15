@@ -2,3 +2,14 @@
     max-width: 300px;
 }
   
+mat-card-title {
+    color: rgb(73, 73, 73);
+    font-weight: 200  !important;
+    font-size: 15px;
+}
+
+mat-card-subtitle {
+    color: rgb(172, 171, 171);
+    font-weight: 200  !important;
+    font-size: 12px;
+}

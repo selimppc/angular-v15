@@ -1,3 +1,4 @@
+import { RedisDataComponent } from './redis-data/redis-data.component';
 import { AuthGuard } from './service/auth/auth-guard.service';
 import { UsersComponent } from './users/users.component';
 import { ListComponent } from './list/list.component';
@@ -23,6 +24,9 @@ const routes: Routes = [
   { path:"list", component: ListComponent },
   {
     path: 'users', component: UsersComponent, canActivate:[AuthGuard],
+  },
+  {
+    path: 'redis-data', component: RedisDataComponent
   },
 
 

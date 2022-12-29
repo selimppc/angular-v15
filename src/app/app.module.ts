@@ -26,6 +26,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { UsersComponent } from './users/users.component';
 import { MainMenuComponent } from './layout/main-menu/main-menu.component';
 import { LoginSignupMenuComponent } from './layout/login-signup-menu/login-signup-menu.component';
+import { RedisDataComponent } from './redis-data/redis-data.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { LoginSignupMenuComponent } from './layout/login-signup-menu/login-signu
     UsersComponent,
     MainMenuComponent,
     LoginSignupMenuComponent,
+    RedisDataComponent,
   ],
   imports: [
     BrowserModule,
